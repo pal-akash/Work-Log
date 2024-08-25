@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import dayjs from "dayjs";
 import {
@@ -6,8 +8,12 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { cn } from "@/lib/utils";
+import { useLogStore } from "@/store";
 
 function Calendar() {
+
+  const logs = useLogStore((state) => state.logs)
+
   function getDateinMonth(year = dayjs().year(), month = dayjs().month()) {
     const startDate = dayjs().year(year).month(month).date(1);
     const endDate = startDate.endOf("month");
@@ -34,6 +40,8 @@ function Calendar() {
   }
 
   const workHour = 0
+  console.log(logs);
+  
 
   return (
     <div className="border border-dashed flex flex-wrap gap-2 p-10 justify-center rounded-md">
