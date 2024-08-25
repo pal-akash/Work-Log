@@ -46,13 +46,16 @@ function Calendar() {
   return (
     <div className="border border-dashed flex flex-wrap gap-2 p-10 justify-center rounded-md">
       {getDateinMonth().map((value, index) => {
+
+        const log = logs[value]
+
         return (
           <HoverCard key={index}>
             <HoverCardTrigger>
-                <div className={cn('h-5 w-5 bg-gray-100 rounded-sm cursor-pointer', getColor(workHour || 0))}></div>
+                <div className={cn('h-5 w-5 bg-gray-100 rounded-sm cursor-pointer', getColor(log?.hour || 0))}></div>
             </HoverCardTrigger>
             <HoverCardContent>
-              0 hours on {value}
+              {log?.hour || 0} hours on {value}
             </HoverCardContent>
           </HoverCard>
         );
