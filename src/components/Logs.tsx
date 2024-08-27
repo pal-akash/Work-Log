@@ -15,6 +15,8 @@ import { cn } from '@/lib/utils'
   
 
 function Logs() {
+
+  // list from supabase
   const logs = useLogStore((state) => state.logs)
   
   return (

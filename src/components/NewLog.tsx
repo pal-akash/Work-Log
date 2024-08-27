@@ -53,6 +53,8 @@ export function NewLog() {
             })
 
             closeDialog()
+
+            // call to supabase
             
         } catch (error) {
             toast({
